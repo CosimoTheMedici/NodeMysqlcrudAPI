@@ -1,0 +1,33 @@
+{
+  "name": "nodemysqlcrudapi",
+  "version": "1.0.0",
+  "description": "This is the final project for the series of crud operations. Operaions will be done on a mysql DB",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CosimoTheMedici/NodeMysqlcrudAPI.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "cosmas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CosimoTheMedici/NodeMysqlcrudAPI/issues"
+  },
+  "homepage": "https://github.com/CosimoTheMedici/NodeMysqlcrudAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
