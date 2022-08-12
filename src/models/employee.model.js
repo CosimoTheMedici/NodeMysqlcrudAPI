@@ -1,6 +1,6 @@
 var dbConn = require('../../config/db.config')
 
-var Employee = (employee) => {
+var Employee = function (employee) {
     this.first_name     =   employee.first_name;
     this.last_name      =   employee.last_name;
     this.email          =   employee.email;
@@ -33,7 +33,7 @@ var Employee = (employee) => {
 
 Employee.getAllEmployeeeByID = (id, result ) => {
     console.log("id2",id)
-    dbConn.query(`SELECT * FROM employees WHERE id=${id}` , (err,res)=>{
+    dbConn.query('SELECT * FROM employees WHERE id=?',id , (err,res)=>{
         if(err){
             console.log('Error while fetching by id',err);
             result(null,err);
@@ -44,6 +44,20 @@ Employee.getAllEmployeeeByID = (id, result ) => {
 
     })
 
+}
+//create new employee
+Employee.createEmployee = (employeeReqData, result)=>{
+    dbConn.query('INSERT INTO employees SET ?',employeeReqData,(err,res)=>{
+        if(err){
+            console.log('Error while inserting data');
+            result(null,err);
+            //result(null,{status:false,message:err});
+        }else {
+            console.log('Emlployee Created successfully')
+            result(null,res)
+            //result(null,{status: true,message:'Employee Created successfully',insertId:res.id})
+        }
+    })
 }
 
 module.exports = Employee;
