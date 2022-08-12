@@ -43,3 +43,21 @@ exports.createNewEmployee = (req,res)=>{
         })
     }
 }
+
+exports.updateEmployeeAllData = (req,res) => {
+    const employeeReqData = new EmployeeModel(req.body,req.params.id)
+    //console.log('employee ',employeeReqData);
+
+    if(req.body.constructor === Object && Object.keys(req.body).length===0){
+        res.send(400).send({success : false,message :'please fill all fields'})
+    } else {
+        console.log('valid data')
+        EmployeeModel.updateEmployee(employeeReqData,req.params.id,(err,employee)=>{
+            if(err)
+                 res.send(err)
+                 res.json({status:true,message:"Employee updated Successfully",data:employee})
+        })
+    }
+
+    
+}

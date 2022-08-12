@@ -12,4 +12,9 @@ router.get('/:id', employeeController.getEmployeeByID)
 //create new employee
 router.post('/',employeeController.createNewEmployee);
 
+router.put('/:id',employeeController.updateEmployeeAllData);
+
+
+
+
 module.exports = router;
