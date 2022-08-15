@@ -103,7 +103,7 @@ exports.loginEmployeeUser = (req,res) =>{
         const result = compareSync(body.password,results.password)
         if(result){
             results.password = undefined;
-            const jsontoken = sign({result:results},"qwe1234",{
+            const jsontoken = sign({result:results},process.env.TOKEN_HASH1,{
                 expiresIn:"1h"
             });
             return res.json({

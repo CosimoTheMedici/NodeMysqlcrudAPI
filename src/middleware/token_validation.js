@@ -1,4 +1,5 @@
 const { verify } =  require("jsonwebtoken")
+require('dotenv').config();
 
 exports.validateToken = (req,res,next) => {
     let token = req.get("authorization");
@@ -6,7 +7,9 @@ exports.validateToken = (req,res,next) => {
     console.log(req)
     if(token){
         token = token.slice(7);
-        verify(token,process.env.TOKEN_HASH,(err,decoded) =>{
+        const crypt_key = process.env.TOKEN_HASH1
+        verify(token,crypt_key,(err,decoded) =>{
+            console.log(crypt_key)
             if(err){
                 res.json({
                     success:0,
