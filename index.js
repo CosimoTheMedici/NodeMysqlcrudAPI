@@ -6,7 +6,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 // parser requests data cntent type application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended:false}))
+//app.use(bodyParser.urlencoded({extended:false}))
 
 //parser requests data content type application/json
 app.use(bodyParser.json());
